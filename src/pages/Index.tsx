@@ -152,7 +152,7 @@ const Index = () => {
   const sponsors: Sponsor[] = [
     {
       name: "OFPPT",
-      image: "../../public/images/sponsors/ofppt.png", // Institution icon
+      image: "/images/sponsors/ofppt.png", // Institution icon
       field: "Formation Professionnelle",
       description:
         "Partenaire institutionnel fournissant infrastructures et ressources pédagogiques.",
