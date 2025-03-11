@@ -59,7 +59,7 @@ const Index = () => {
   {
     name: "YOUNES LHLIBI",
     role: "Vice-Président",
-    age: 19,
+    age: 20,
     class: "DD101",
     image: "/images/members/5.png",
   },
@@ -73,7 +73,7 @@ const Index = () => {
   {
     name: "JAD GHALALI",
     role: "Trésorier Principal",
-    age: 19,
+    age: 18,
     class: "DD103",
     image: "/images/members/14.png", // Image externe correcte
   },
