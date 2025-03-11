@@ -49,110 +49,110 @@ const Index = () => {
   };
 
   const members: Member[] = [
-    {
-      name: "MANAR SROUT",
-      role: "Présidente",
-      age: 19,
-      class: "ID102",
-      image: "images/members/2.png",
-    },
-    {
-      name: "YOUNES LHLIBI",
-      role: "Vice-Président",
-      age: 20,
-      class: "DD101",
-      image: "images/members/5.png",
-    },
-    {
-      name: "ABDEL MONIM MAZGOURA",
-      role: "Responsable Formation et Projets Principal et Développeur du Club",
-      age: 19,
-      class: "DD104",
-      image: "images/members/1.png",
-    },
-    {
-      name: "JAD GHALALI",
-      role: "Trésorier Principal",
-      age: 19,
-      class: "DD103",
-      image: "images/members/14.png",
-    },
-    {
-      name: "ILYAS ELBOUCHIKHI",
-      role: "Co-Trésorier",
-      age: 22,
-      class: "TSDI 2",
-      image: "images/members/12.png",
-    },
-    {
-      name: "KARIM AIT CHEIKH",
-      role: "Responsable Social Media Principal",
-      age: 21,
-      class: "TSDI 2",
-      image: "images/members/7.png",
-    },
-    {
-      name: "HAMZA OUBAHA",
-      role: "CO-Responsable Social Media",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/6.png",
-    },
-    {
-      name: "MOHAMED KOUATLY",
-      role: "Responsable Communication Principal",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/4.png",
-    },
-    {
-      name: "ADAM MALAHI",
-      role: "CO-Responsable Communication ",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/10.png",
-    },
-    {
-      name: "YAZID ATTAF",
-      role: "Responsable Sponsoring Principal",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/11.png",
-    },
-    {
-      name: "AMMAR AMIRI",
-      role: "CO-Responsable Sponsoring ",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/9.png",
-    },
-    {
-      name: "HIBA ELGHAZI",
-      role: "CO-Responsable Formation et Projets ",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/13.png",
-    },
-    {
-      name: "JIHAD BENMOUSSA",
-      role: "Responsable Événements Principal",
-      age: 20,
-      class: "TSDI 1",
-      image: "images/members/3.png",
-    },
-    {
-      name: "IMANE JAADI",
-      role: "CO-Responsable Événements ",
-      age: 20,
-      class: "TSDI 1",
-      image: images/members/8.png",
-    },
-  ];
+  {
+    name: "MANAR SROUT",
+    role: "Présidente",
+    age: 19,
+    class: "ID101",
+    image: "/images/members/2.png",
+  },
+  {
+    name: "YOUNES LHLIBI",
+    role: "Vice-Président",
+    age: 19,
+    class: "DD101",
+    image: "/images/members/5.png",
+  },
+  {
+    name: "ABDEL MONIM MAZGOURA",
+    role: "Responsable Formation et Projets Principal et Développeur du Club",
+    age: 19,
+    class: "DD104",
+    image: "/images/members/1.png",
+  },
+  {
+    name: "JAD GHALALI",
+    role: "Trésorier Principal",
+    age: 19,
+    class: "DD103",
+    image: "/images/members/14.png", // Image externe correcte
+  },
+  {
+    name: "ILYAS ELBOUCHIKHI",
+    role: "Co-Trésorier",
+    age: 21,
+    class: "ID101",
+    image: "/images/members/12.png",
+  },
+  {
+    name: "KARIM AIT CHEIKH",
+    role: "Responsable Social Media Principal",
+    age: 18,
+    class: "ID103",
+    image: "/images/members/7.png",
+  },
+  {
+    name: "HAMZA OUBAHA",
+    role: "CO-Responsable Social Media",
+    age: 20,
+    class: "DD104",
+    image: "/images/members/6.png",
+  },
+  {
+    name: "MOHAMED KOUATLY",
+    role: "Responsable Communication Principal",
+    age: 22,
+    class: "ID203",
+    image: "/images/members/4.png",
+  },
+  {
+    name: "ADAM MALAHI",
+    role: "CO-Responsable Communication ",
+    age: 18,
+    class: "DD104",
+    image: "/images/members/10.png",
+  },
+  {
+    name: "YAZID ATTAF",
+    role: "Responsable Sponsoring Principal",
+    age: 21,
+    class: "ID101",
+    image: "/images/members/11.png",
+  },
+  {
+    name: "AMMAR AMIRI",
+    role: "CO-Responsable Sponsoring ",
+    age: 18,
+    class: "DD102",
+    image: "/images/members/9.png",
+  },
+  {
+    name: "HIBA ELGHAZI",
+    role: "CO-Responsable Formation et Projets ",
+    age: 20,
+    class: "ID101",
+    image: "/images/members/13.png",
+  },
+  {
+    name: "JIHAD BENMOUSSA",
+    role: "Responsable Événements Principal",
+    age: 20,
+    class: "ID201",
+    image: "/images/members/3.png",
+  },
+  {
+    name: "IMANE JAADI",
+    role: "CO-Responsable Événements ",
+    age: 18,
+    class: "DD101",
+    image: "/images/members/8.png",
+  },
+];
 
   const sponsors: Sponsor[] = [
     {
       name: "OFPPT",
-      image: "images/sponsors/ofppt.png", // Institution icon
+      image: "../../public/images/sponsors/ofppt.png", // Institution icon
       field: "Formation Professionnelle",
       description:
         "Partenaire institutionnel fournissant infrastructures et ressources pédagogiques.",
@@ -193,7 +193,7 @@ const Index = () => {
       description:
         "Le Hackathon du 8 mars invite des équipes de 3 participants à créer des solutions innovantes sur le thème des Droits des Femmes. En une semaine, les équipes devront brainstormer et développer leurs projets sous pression. Les meilleurs auront l’opportunité de présenter devant un panel de juges et de remporter des prix. Rejoignez-nous pour une expérience enrichissante et dynamique !",
       image:
-        "../../public/images/events/hackathon_express.jpg",
+        "/images/events/hackathon_express.jpg",
     },
     {
       title: "Atelier Réseaux",
