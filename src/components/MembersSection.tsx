@@ -40,7 +40,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
     }
   }, [controls, isInView, index]);
   
-  // Generate description for each member from a centralized data structure
+
   const getMemberDescription = () => {
     const descriptions = {
       "MANAR SROUT":
@@ -100,7 +100,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
         {/* Gradient border effect */}
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
         
-        {/* Member image - INCREASED SIZE */}
         <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
           <img
             src={member.image}
@@ -110,8 +109,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
         </div>
         
-        {/* Member info - adjusted for bigger image */}
-        <div className="p-4 w-full relative z-10 mt-2">
+        <div className="p-4 w-full relative z-10 mt-1">
           <h3 className={`text-xl font-semibold mb-1 group-hover:text-primary transition-colors duration-300 ${
             isDark ? 'text-white' : 'text-gray-800'
           }`}>
@@ -123,7 +121,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
             <span>Classe: {member.class}</span>
           </div>
           
-          {/* Description overlay */}
           <div 
             className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-primary/40 backdrop-blur-sm p-4 transform transition-all duration-500 rounded-b-xl ${
               isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
@@ -135,7 +132,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
           </div>
         </div>
 
-        {/* Animated particles (only visible on hover) */}
         {isHovered && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <motion.div
@@ -177,7 +173,6 @@ const FuturisticBackground: React.FC<{ theme: 'dark' | 'light' }> = ({ theme }) 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="relative w-full h-full">
-        {/* Animated gradient orbs */}
         <motion.div 
           className={`absolute w-96 h-96 rounded-full ${
             isDark ? 'bg-primary/5' : 'bg-primary/10'
@@ -264,11 +259,10 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
       <FuturisticBackground theme={theme} />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section header with animations */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={controls}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-1"
         >
           <motion.span 
             initial={{ opacity: 0, y: 20 }}

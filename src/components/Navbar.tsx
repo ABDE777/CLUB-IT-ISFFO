@@ -10,33 +10,43 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { theme } = useTheme();
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const scrollPosition = window.scrollY;
+      const homeSection = document.getElementById("home");
+      const homeHeight = homeSection?.offsetHeight || 0;
 
+      // Sticky behavior only on desktop
+      setIsSticky(window.innerWidth >= 768 && scrollPosition > homeHeight);
+
+      // Active section detection
       const sections = ["home", "members", "sponsors", "announcements"];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
-        return element && element.getBoundingClientRect().top <= 100;
+        return (
+          element &&
+          scrollPosition >= element.offsetTop - 100 &&
+          scrollPosition < element.offsetTop + element.offsetHeight - 100
+        );
       });
 
-      currentSection && setActiveSection(currentSection);
+      setActiveSection(currentSection || "home");
     };
 
-    // Gestion du redimensionnement pour fermer le menu mobile
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setMobileMenuOpen(false);
-      }
+      if (window.innerWidth >= 768) setMobileMenuOpen(false);
+      handleScroll();
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
+    handleScroll();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -46,7 +56,7 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
   const navLinks = [
     { name: "Accueil", href: "#home" },
     { name: "Équipe", href: "#members" },
-    { name: "Encadrants", href: "#sponsors" },
+    { name: "Sponsors", href: "#sponsors" },
     { name: "Événements", href: "#announcements" },
   ];
 
@@ -74,9 +84,9 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 py-3 transition-all duration-300",
-        theme === "dark" ? "bg-black" : "bg-white", // Fond noir fixe pour le thème sombre
-        isScrolled && "shadow-md backdrop-blur-md" // Effets de défilement
+        "w-full z-50 py-4 transition-all duration-300",
+        theme === "dark" ? "bg-black" : "bg-white",
+        isSticky && "md:sticky md:top-0 md:shadow-md md:backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -90,74 +100,78 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
           whileHover={{ scale: 1.05 }}
           className="flex items-center z-20"
         >
-          <motion.span
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
-          >
+          <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
             IT Club
-          </motion.span>
+          </span>
         </motion.a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link, index) => (
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
             <motion.a
               key={link.name}
               href={link.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.href);
+              }}
+              whileHover={{ y: -2 }}
               className={cn(
-                "relative px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+                "relative px-4 py-2 text-sm font-medium transition-colors",
                 activeSection === link.href.slice(1)
-                  ? "text-primary bg-primary/10"
+                  ? "text-primary"
                   : theme === "dark"
-                  ? "text-gray-300 hover:bg-white/5"
-                  : "text-gray-600 hover:bg-gray-100"
+                  ? "text-gray-300 hover:text-white"
+                  : "text-gray-600 hover:text-black"
               )}
             >
               {link.name}
-              <span
-                className={cn(
-                  "absolute bottom-0 left-0 w-full h-px bg-primary transition-transform",
-                  activeSection === link.href.slice(1)
-                    ? "scale-x-100"
-                    : "scale-x-0"
-                )}
-              />
+              {activeSection === link.href.slice(1) && (
+                <motion.div
+                  className="absolute bottom-0 left-0 w-full h-px bg-primary"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
             </motion.a>
           ))}
         </nav>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex items-center  gap-4">
-          <CustomButton
-            variant="outline"
-            onClick={onJoinClick}
-            className="border-primary text-primary hover:bg-primary/10"
-          >
-            Rejoindre
-          </CustomButton>
-          <CustomButton
-            onClick={handleInstagramClick}
-            className="bg-gradient-to-r from-primary to-purple-600 hover:opacity-90"
-          >
-            Contactez-nous
-          </CustomButton>
+        <div className="hidden md:flex items-center gap-4">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <CustomButton
+              variant="outline"
+              onClick={onJoinClick}
+              className="border-primary text-primary hover:bg-primary/10"
+            >
+              Rejoindre
+            </CustomButton>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <CustomButton
+              onClick={handleInstagramClick}
+              className="bg-gradient-to-r from-primary to-purple-600 hover:opacity-90"
+            >
+              Contact
+            </CustomButton>
+          </motion.div>
         </div>
 
         {/* Mobile Menu Button */}
         <motion.button
           className={cn(
-            "md:hidden p-2 rounded-full z-[60]",
+            "md:hidden p-2 rounded-full",
             theme === "dark" ? "text-white" : "text-gray-900"
           )}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          {mobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          <AnimatePresence mode="wait">
+            {mobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          </AnimatePresence>
         </motion.button>
 
         {/* Mobile Menu */}
@@ -165,7 +179,7 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
           {mobileMenuOpen && (
             <>
               <motion.div
-                className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm"
+                className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -174,11 +188,11 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
               <motion.div
                 className={cn(
                   "fixed inset-0 z-50 flex flex-col",
-                  theme === "dark" ? "bg-black" : "bg-white" // Fond noir pour le menu mobile
+                  theme === "dark" ? "bg-black" : "bg-white"
                 )}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: "-100%" }}
+                initial={{ y: -20 }}
+                animate={{ y: 0 }}
+                exit={{ y: -20 }}
               >
                 <div className="flex flex-col h-full p-4 pt-24">
                   <nav className="flex flex-col gap-4 flex-1">
@@ -190,13 +204,15 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
                           e.preventDefault();
                           scrollToSection(link.href);
                         }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
                         className={cn(
-                          "py-3 px-4 rounded-lg text-center text-lg",
+                          "py-3 px-4 rounded-lg text-center",
                           activeSection === link.href.slice(1)
                             ? "bg-primary/10 text-primary"
                             : theme === "dark"
-                            ? "text-gray-300 hover:bg-white/10"
-                            : "text-gray-700 hover:bg-gray-100"
+                            ? "text-gray-300"
+                            : "text-gray-700"
                         )}
                       >
                         {link.name}
@@ -204,7 +220,7 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
                     ))}
                   </nav>
 
-                  <div className="flex flex-col gap-3 mt-8">
+                  <div className="flex flex-col gap-4 mt-8">
                     <CustomButton
                       variant="outline"
                       onClick={() => {
@@ -219,7 +235,7 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
                       onClick={handleInstagramClick}
                       className="w-full py-3 bg-gradient-to-r from-primary to-purple-600"
                     >
-                      Contactez-nous
+                      Contact
                     </CustomButton>
                   </div>
                 </div>
