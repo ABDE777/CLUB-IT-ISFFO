@@ -75,7 +75,7 @@ const Index = () => {
       role: "Trésorier Principal",
       age: 19,
       class: "DD103",
-      image: "https://cdn-icons-png.flaticon.com/512/194/194931.png",
+      image: "images/members/14.png",
     },
     {
       name: "ILYAS ELBOUCHIKHI",
@@ -89,70 +89,70 @@ const Index = () => {
       role: "Responsable Social Media Principal",
       age: 21,
       class: "TSDI 2",
-      image: "../../public/images/members/7.png",
+      image: "images/members/7.png",
     },
     {
       name: "HAMZA OUBAHA",
       role: "CO-Responsable Social Media",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/6.png",
+      image: "images/members/6.png",
     },
     {
       name: "MOHAMED KOUATLY",
       role: "Responsable Communication Principal",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/4.png",
+      image: "images/members/4.png",
     },
     {
       name: "ADAM MALAHI",
       role: "CO-Responsable Communication ",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/10.png",
+      image: "images/members/10.png",
     },
     {
       name: "YAZID ATTAF",
       role: "Responsable Sponsoring Principal",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/11.png",
+      image: "images/members/11.png",
     },
     {
       name: "AMMAR AMIRI",
       role: "CO-Responsable Sponsoring ",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/9.png",
+      image: "images/members/9.png",
     },
     {
       name: "HIBA ELGHAZI",
       role: "CO-Responsable Formation et Projets ",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/13.png",
+      image: "images/members/13.png",
     },
     {
       name: "JIHAD BENMOUSSA",
       role: "Responsable Événements Principal",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/3.png",
+      image: "images/members/3.png",
     },
     {
       name: "IMANE JAADI",
       role: "CO-Responsable Événements ",
       age: 20,
       class: "TSDI 1",
-      image: "../../public/images/members/8.png",
+      image: images/members/8.png",
     },
   ];
 
   const sponsors: Sponsor[] = [
     {
       name: "OFPPT",
-      image: "../../public/images/sponsors/ofppt.png", // Institution icon
+      image: "images/sponsors/ofppt.png", // Institution icon
       field: "Formation Professionnelle",
       description:
         "Partenaire institutionnel fournissant infrastructures et ressources pédagogiques.",
