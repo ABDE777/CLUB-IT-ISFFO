@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
             <li className="flex items-center gap-2 text-muted-foreground">
   <MapPin size={16} className="text-primary" />
   <a 
-    href="https://www.google.com/maps/place/G9F7+2VF،+الطريق+الوطنية+رقم+11,+Casablanca" 
+    href="https://maps.app.goo.gl/fgMZqFPWDsJVGWgs6" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:underline text-blue-500"
