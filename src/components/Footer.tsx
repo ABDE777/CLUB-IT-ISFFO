@@ -115,17 +115,18 @@ const Footer: React.FC = () => {
               </li>
 
             
-            <li className="flex items-center gap-2 text-muted-foreground">
+ <li className="flex items-center gap-2 text-muted-foreground">
   <MapPin size={16} className="text-primary" />
-  <a 
-    href="https://maps.app.goo.gl/fgMZqFPWDsJVGWgs6" 
-    target="_blank" 
+  <a
+    href="https://maps.app.goo.gl/fgMZqFPWDsJVGWgs6"
+    target="_blank"
     rel="noopener noreferrer"
-    className="hover:underline text-blue-500"
+    className="text-muted-foreground hover:text-primary"
   >
     Casablanca, Maroc
   </a>
 </li>
+
 
             </ul>
           </div>
