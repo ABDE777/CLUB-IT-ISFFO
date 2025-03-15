@@ -114,10 +114,19 @@ const Footer: React.FC = () => {
                 </a>
               </li>
 
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <MapPin size={16} className="text-primary" />{" "}
-                <span>Casablanca, Maroc</span>
-              </li>
+            
+            <li className="flex items-center gap-2 text-muted-foreground">
+  <MapPin size={16} className="text-primary" />
+  <a 
+    href="https://www.google.com/maps/place/G9F7+2VF،+الطريق+الوطنية+رقم+11,+Casablanca" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="hover:underline text-blue-500"
+  >
+    Casablanca, Maroc
+  </a>
+</li>
+
             </ul>
           </div>
         </div>
