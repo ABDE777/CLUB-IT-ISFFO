@@ -154,13 +154,13 @@ const Index = () => {
       name: "Mme. BELAOUD HANANE",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Développement Réseaux",
-      description: "Le professeur en réseau forme les étudiants à la gestion et à la sécurité des réseaux informatiques, en les préparant à concevoir et maintenir des infrastructures performantes.",
+      description: "Notre professeure en réseau nous guide dans la gestion et la sécurité des réseaux, en nous préparant à concevoir des infrastructures efficaces.",
     },
     {
       name: "Mr. BOUSETTA IBRAHIM",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Direction Institutionnelle",
-      description: "Directeur de l'institut, superviseur stratégique du club.",
+      description: "Le directeur de l'ISFO supervise la gestion de l’établissement, assurant son bon fonctionnement et la réussite des étudiants.",
     },
   ];
 
