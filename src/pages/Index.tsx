@@ -158,12 +158,6 @@ const Index = () => {
         "Partenaire institutionnel fournissant infrastructures et ressources pédagogiques.",
     },
     {
-      name: "Mr. KAMAL DAOUDI",
-      image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
-      field: "Développement Web",
-      description: "Expert en technologies web full-stack (React/Node.js).",
-    },
-    {
       name: "Mme. BELAOUD HANANE",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Développement Réseaux",
@@ -174,13 +168,6 @@ const Index = () => {
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Direction Institutionnelle",
       description: "Directeur de l'institut, superviseur stratégique du club.",
-    },
-    {
-      name: "Mme. SEMMAR",
-      image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
-      field: "Développement Réseaux",
-      description:
-        "Experte en sécurité réseau et déploiement d'infrastructures cloud.",
     },
   ];
 
@@ -195,24 +182,7 @@ const Index = () => {
       image:
         "/images/events/hackathon_express.jpg",
     },
-    {
-      title: "Atelier Réseaux",
-      dateDebut: "22 Juin 2025",
-      dateFin: "23 Juin 2025",
-      description:
-        "Atelier dédié aux fondamentaux des réseaux informatiques et à la cybersécurité.",
-      image:
-        "https://img.freepik.com/free-vector/networking-concept-illustration_114360-729.jpg",
-    },
-    {
-      title: "Conférence IA",
-      dateDebut: "10 Septembre 2025",
-      dateFin: "12 Septembre 2025",
-      description:
-        "Conférence sur l'intelligence artificielle et son impact dans le monde professionnel.",
-      image:
-        "https://img.freepik.com/free-vector/artificial-intelligence-concept-illustration_114360-2297.jpg",
-    },
+   
   ];
   // spell-checker: enable
 
