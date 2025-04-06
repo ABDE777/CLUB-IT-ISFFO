@@ -151,13 +151,6 @@ const Index = () => {
 
   const sponsors: Sponsor[] = [
     {
-      name: "OFPPT",
-      image: "/images/sponsors/ofppt.png", // Institution icon
-      field: "Formation Professionnelle",
-      description:
-        "Partenaire institutionnel fournissant infrastructures et ressources pédagogiques.",
-    },
-    {
       name: "Mme. BELAOUD HANANE",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Développement Réseaux",
