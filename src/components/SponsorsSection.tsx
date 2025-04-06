@@ -37,13 +37,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
         "L'Office de la Formation Professionnelle et de la Promotion du Travail, partenaire clé dans le développement des compétences et l'insertion professionnelle des jeunes marocains.",
       "Mr. KAMAL DAOUDI":
         "Expert chevronné en développement web avec plus de 15 ans d'expérience, mentor passionné guidant les étudiants vers l'excellence technique et l'innovation.",
-      Google:
-        "Leader mondial des technologies offrant des ressources éducatives, des API avancées et un support pour nos projets de développement et de recherche.",
-      GitHub:
-        "Plateforme essentielle pour la collaboration et le partage de code, facilitant le travail d'équipe et la gestion de versions pour tous nos projets.",
-      Vercel:
-        "Infrastructure d'hébergement de pointe pour nos applications web, permettant des déploiements continus, une performance optimale et une expérience développeur exceptionnelle.",
-    };
+};
     return (
       descriptions[name] ||
       sponsor.description ||
