@@ -91,7 +91,7 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-       <motion.a
+     <motion.a
   href="#home"
   onClick={(e) => {
     e.preventDefault();
@@ -103,9 +103,10 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
   <img
     src="/images/logo.png"
     alt="Logo IT Club"
-    className="h-10 w-auto object-contain"
+    className="w-32 h-auto" // width increased, height will scale proportionally
   />
 </motion.a>
+
 
 
         {/* Desktop Navigation */}
