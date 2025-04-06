@@ -65,14 +65,14 @@ const Index = () => {
   },
   {
     name: "ABDEL MONIM MAZGOURA",
-    role: "Responsable Formation et Projets Principal et Développeur du Club",
+    role: "Responsable Formation et Projets et Développeur du Club",
     age: 19,
     class: "DD104",
     image: "/images/members/1.png",
   },
   {
     name: "JAD GHALALI",
-    role: "Trésorier Principal",
+    role: "Trésorier",
     age: 18,
     class: "DD103",
     image: "/images/members/14.png", // Image externe correcte
@@ -86,7 +86,7 @@ const Index = () => {
   },
   {
     name: "KARIM AIT CHEIKH",
-    role: "Responsable Social Media Principal",
+    role: "Responsable Social Media ",
     age: 18,
     class: "ID103",
     image: "/images/members/7.png",
@@ -100,7 +100,7 @@ const Index = () => {
   },
   {
     name: "MOHAMED KOUATLY",
-    role: "Responsable Communication Principal",
+    role: "Responsable Communication ",
     age: 22,
     class: "ID203",
     image: "/images/members/4.png",
@@ -114,7 +114,7 @@ const Index = () => {
   },
   {
     name: "YAZID ATTAF",
-    role: "Responsable Sponsoring Principal",
+    role: "Responsable Sponsoring ",
     age: 21,
     class: "ID101",
     image: "/images/members/11.png",
@@ -135,7 +135,7 @@ const Index = () => {
   },
   {
     name: "JIHAD BENMOUSSA",
-    role: "Responsable Événements Principal",
+    role: "Responsable Événements ",
     age: 20,
     class: "ID201",
     image: "/images/members/3.png",
