@@ -91,19 +91,22 @@ const NavBar: React.FC<NavBarProps> = ({ onJoinClick }) => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("#home");
-          }}
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center z-20"
-        >
-          <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-            IT Club
-          </span>
-        </motion.a>
+       <motion.a
+  href="#home"
+  onClick={(e) => {
+    e.preventDefault();
+    scrollToSection("#home");
+  }}
+  whileHover={{ scale: 1.05 }}
+  className="flex items-center z-20"
+>
+  <img
+    src="/images/logo.png"
+    alt="Logo IT Club"
+    className="h-10 w-auto object-contain"
+  />
+</motion.a>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
