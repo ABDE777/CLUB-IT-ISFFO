@@ -154,7 +154,7 @@ const Index = () => {
       name: "Mme. BELAOUD HANANE",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
       field: "Développement Réseaux",
-      description: "Spécialiste en architecture réseau et configuration Cisco.",
+      description: "Le professeur en réseau forme les étudiants à la gestion et à la sécurité des réseaux informatiques, en les préparant à concevoir et maintenir des infrastructures performantes.",
     },
     {
       name: "Mr. BOUSETTA IBRAHIM",
