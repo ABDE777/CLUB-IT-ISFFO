@@ -165,32 +165,7 @@ const AnnouncementsSection = () => {
         { time: "11h30", activity: "Remise des Prix" },
       ],
     },
-    {
-      title: "Women in AI Workshop",
-      dateDebut: "21 Mars 2025",
-      dateFin: "23 Mars 2025",
-      image: "/images/events/imgerreur.png",
-      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdy4KeN-ZCV23XBQ7QAOC0e-eFzTI-fIpjln3o4JCW6dDtVKQ/viewform?usp=header",
-      schedule: [
-        { time: "09h00", activity: "Introduction à l'IA" },
-        { time: "10h30", activity: "Ateliers pratiques" },
-        { time: "14h00", activity: "Cas d'utilisation réels" },
-        { time: "16h00", activity: "Réseautage" },
-      ],
-    },
-    {
-      title: "Coding Bootcamp Feminin",
-      dateDebut: "1 Avril 2025",
-      dateFin: "5 Avril 2025",
-      image: "/images/events/imgerreur.png",
-      formUrl: "#",
-      schedule: [
-        { time: "09h00", activity: "Session matinale" },
-        { time: "13h00", activity: "Déjeuner réseau" },
-        { time: "14h30", activity: "Projets collaboratifs" },
-        { time: "17h00", activity: "Feedback session" },
-      ],
-    },
+   
   ];
 
   const handleNavigation = (newDirection) => {
