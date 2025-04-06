@@ -41,7 +41,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
     return (
       descriptions[name] ||
       sponsor.description ||
-      "Partenaire précieux qui soutient notre club et contribue à notre succès collectif."
+      "Encadrants dévoués qui accompagnent notre club avec engagement et jouent un rôle essentiel dans notre réussite collective."
     );
   };
 
@@ -442,8 +442,7 @@ const SponsorsSection: React.FC<SponsorsSectionProps> = ({ sponsors }) => {
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
           >
-            Nos partenaires et encadrants qui nous aident à développer nos
-            compétences et à réaliser nos projets avec excellence et innovation.
+           Nos encadrants, qui nous guident avec expertise et soutien, jouent un rôle clé dans le développement de nos compétences et la réalisation de nos projets avec excellence et innovation.
           </motion.p>
         </div>
         {/* Carousel with custom navigation */}
