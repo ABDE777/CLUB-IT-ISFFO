@@ -99,7 +99,7 @@ const Index = () => {
     image: "/images/members/6.png",
   },
   {
-    name: "MOHAMED KOUATLY",
+    name: "MOHAMMED KOUATLY",
     role: "Responsable Communication ",
     age: 22,
     class: "ID203",
