@@ -94,7 +94,7 @@ const Index = () => {
   {
     name: "HAMZA OUBAHA",
     role: "CO-Responsable Social Media",
-    age: 20,
+    age: 22,
     class: "DD104",
     image: "/images/members/6.png",
   },
