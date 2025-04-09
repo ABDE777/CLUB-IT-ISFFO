@@ -9,23 +9,11 @@ interface HeroSectionProps {
 
 const announcements = [
   {
-    id: 1,
-    title: "Hackathon Express 2024",
-    date: "15-17 Mars | Inscriptions ouvertes!",
-    label: "NOUVEAU",
-  },
-  {
-    id: 2,
-    title: "Workshop React Avancé",
-    date: "22 Mars | Places limitées",
-    label: "POPULAIRE",
-  },
-  {
-    id: 3,
-    title: "Challenge Sécurité IT",
-    date: "5-7 Avril | Pré-inscription disponible",
-    label: "PROCHAINEMENT",
-  },
+  id: 1,
+  title: "Conférence exclusive sur les métiers et tendances IT",
+  date: "28-29 MAI | Inscriptions bientôt ouvertes",
+  label: "PROCHAINEMENT",
+}
 ];
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
