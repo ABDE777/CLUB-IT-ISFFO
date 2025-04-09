@@ -149,20 +149,40 @@ const Index = () => {
   },
 ];
 
-  const sponsors: Sponsor[] = [
+ const sponsors: Sponsor[] = [
     {
-      name: "Mme. BELAOUD HANANE",
-      image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
-      field: "Développement Réseaux",
-      description: "Notre professeure en réseau nous guide dans la gestion et la sécurité des réseaux, en nous préparant à concevoir des infrastructures efficaces.",
-    },
-    {
-      name: "Mr. BOUSETTA IBRAHIM",
-      image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
-      field: "Direction Institutionnelle",
-      description: "Le directeur de l'ISFO supervise la gestion de l’établissement, assurant son bon fonctionnement et la réussite des étudiants.",
-    },
-  ];
+    name: "Mr. BOUSETTA IBRAHIM",
+    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
+    field: "Direction Institutionnelle",
+    description: "Le directeur de l'ISFO supervise la gestion de l’établissement, assurant son bon fonctionnement et la réussite des étudiants.",
+  },
+  {
+    name: "Mme. BELAOUD HANANE",
+    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
+    field: "Développement Réseaux",
+    description: "Notre professeure en réseau nous guide dans la gestion et la sécurité des réseaux, en nous préparant à concevoir des infrastructures efficaces.",
+  },
+ 
+  {
+    name: "Mme. AMAL SEMMAR",
+    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
+    field: "Développement Personnel",
+    description: "Mme Semmar nous accompagne dans le développement personnel, en mettant l’accent sur la communication, la confiance en soi et l’épanouissement professionnel.",
+  },
+  {
+    name: "Mr. BOUMLIK",
+    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
+    field: "Administration Pédagogique",
+    description: "Responsable pédagogique, Mr Boumik veille à la bonne organisation des cours, au suivi des étudiants et à la coordination entre les enseignants.",
+  },
+  {
+    name: "Mr. KAMAL DAOUDI",
+    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Professor icon
+    field: "Technologies Informatiques",
+    description: "Expert en technologies IT, Mr Daoudi partage son expérience pour former des étudiants compétents et prêts à relever les défis du numérique.",
+  },
+];
+
 
   // spell-checker: disable
   const announcements: Announcement[] = [
