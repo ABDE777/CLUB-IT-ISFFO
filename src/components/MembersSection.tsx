@@ -41,14 +41,41 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
   }, [controls, isInView, index]);
   
 
+ 
+
   const getMemberDescription = () => {
     const descriptions = {
-      "MANAR SROUT": "Présidente charismatique et visionnaire...",
-      "YOUNES LHLIBI": "Vice-président opérationnel...",
-      // ... (toutes les descriptions)
+      "MANAR SROUT":
+        "Présidente charismatique et visionnaire, elle orchestre les activités du club avec un leadership inspirant et une passion pour l'innovation technologique.",
+      "YOUNES LHLIBI":
+        "Vice-président opérationnel, maître dans l'art de transformer les idées en actions concrètes grâce à son sens aigu de l'organisation.",
+      "JAD GHALALI":
+        "Trésorier méticuleux, gardien des finances du club et stratège en gestion budgétaire. Son Excel n'a aucun secret !",
+      "ILYAS ELBOUCHIKHI":
+        "Trésorier adjoint et expert en économie digitale, alliant rigueur comptable et passion pour les cryptomonnaies.",
+      "KARIM AIT CHEIKH":
+        "Créateur de contenu hors pair, il donne vie à notre présence digitale avec des designs percutants et des campagnes virales.",
+      "HAMZA OUBAHA":
+        "Génie des réseaux sociaux, maître dans l'art d'engager la communauté avec humour et créativité. #ClubITISFO_Genius",
+      "MOHAMED KOUATLY":
+        "Stratège en communication, architecte de notre image publique et bâtisseur de partenariats médiatiques.",
+      "ADAM MALAHI":
+        "Artiste du pixel, transformant les concepts en visuels frappants. Son mantra : 'Une image vaut 1000 likes'.",
+      "YAZID ATTAF":
+        "Négociateur né, dénicheur de partenariats gagnants et bâtisseur de relations durables avec les sponsors.",
+      "AMMAR AMIRI":
+        "Expert en pitchs percutants, transformant les idées en opportunités de sponsoring concrètes.",
+      "ABDEL MONIM MAZGOURA":
+        "Développeur full-stack et chef de projet technique, pilier de nos solutions numériques innovantes. Code, tests, déploiement !",
+      "HIBA ELGHAZI":
+        "Organisatrice méthodique, elle donne vie à nos formations avec une précision d'horloger et un souci du détail remarquable.",
+      "JIHAD BENMOUSSA":
+        "Maître de la logistique événementielle, transformant les espaces en expériences mémorables. Checklist toujours prête !",
+      "IMANE JAADI":
+        "Ambassadrice enthousiaste, son énergie communicative et son sens du contact font de chaque événement un succès.",
     };
     
-    return descriptions[member.name] || "Membre passionné...";
+    return descriptions[member.name] || "Membre passionné contribuant activement au développement du club IT et au partage des connaissances.";
   };
   
   const isDark = theme === 'dark';
