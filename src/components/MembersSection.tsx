@@ -355,4 +355,3 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
 };
 
 export default MembersSection;
-POUR CE CODE OU EST LE CODE QUI APLQIUE LE VITESSE DU SLIDING SUR LES CARD
