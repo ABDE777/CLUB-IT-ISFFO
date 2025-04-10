@@ -23,22 +23,23 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
   const controls = useAnimation();
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: "-50px 0px" });
-
+  
   useEffect(() => {
     if (isInView) {
       controls.start({
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: {
-          duration: 0.5,
+        transition: { 
+          duration: 0.5, 
           delay: index * 0.1,
-          type: "spring",
-          stiffness: 100,
-        },
+          type: "spring", 
+          stiffness: 100 
+        }
       });
     }
   }, [controls, isInView, index]);
+  
 
   const getMemberDescription = () => {
     const descriptions = {
@@ -71,14 +72,14 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
       "IMANE JAADI":
         "Ambassadrice enthousiaste, son énergie communicative et son sens du contact font de chaque événement un succès.",
     };
-    return descriptions[member.name] ||
-      "Membre passionné contribuant activement au développement du club IT et au partage des connaissances.";
+    
+    return descriptions[member.name] || "Membre passionné contribuant activement au développement du club IT et au partage des connaissances.";
   };
-
+  
   const isDark = theme === 'dark';
-
+  
   return (
-    <motion.div
+    <motion.div 
       ref={cardRef}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={controls}
@@ -86,18 +87,19 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <AnimatedCard
-        hoverEffect={true}
+      <AnimatedCard 
+        hoverEffect={true} 
         className={`h-full w-full flex flex-col items-center justify-center transform transition-all duration-500 ${
           isHovered ? 'scale-105' : 'scale-100'
         } ${
-          isDark
-            ? 'bg-gray-900/80 border border-primary/30 text-white'
+          isDark 
+            ? 'bg-gray-900/80 border border-primary/30 text-white' 
             : 'bg-white/90 border border-primary/10 text-gray-800'
         } relative overflow-hidden group`}
       >
+        {/* Gradient border effect */}
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
-
+        
         <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
           <img
             src={member.image}
@@ -106,7 +108,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
         </div>
-
+        
         <div className="p-4 w-full relative z-10 mt-1">
           <h3 className={`text-xl font-semibold mb-1 group-hover:text-primary transition-colors duration-300 ${
             isDark ? 'text-white' : 'text-gray-800'
@@ -118,8 +120,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
             <span>Âge: {member.age}</span>
             <span>Classe: {member.class}</span>
           </div>
-
-          <div
+          
+          <div 
             className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-primary/40 backdrop-blur-sm p-4 transform transition-all duration-500 rounded-b-xl ${
               isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
             }`}
@@ -142,7 +144,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
               transition={{
                 repeat: Infinity,
                 duration: 4,
-                ease: "linear",
+                ease: "linear"
               }}
             />
             <motion.div
@@ -155,7 +157,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
               transition={{
                 repeat: Infinity,
                 duration: 3,
-                ease: "linear",
+                ease: "linear"
               }}
             />
           </div>
@@ -165,4 +167,192 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
   );
 };
 
-export default MemberCard;
+const FuturisticBackground: React.FC<{ theme: 'dark' | 'light' }> = ({ theme }) => {
+  const isDark = theme === 'dark';
+  
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="relative w-full h-full">
+        <motion.div 
+          className={`absolute w-96 h-96 rounded-full ${
+            isDark ? 'bg-primary/5' : 'bg-primary/10'
+          } blur-3xl`}
+          animate={{
+            x: ['0%', '80%', '0%'],
+            y: ['0%', '40%', '0%'],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 20,
+            ease: "easeInOut"
+          }}
+          style={{ top: '-20%', left: '-10%' }}
+        />
+        
+        <motion.div 
+          className={`absolute w-96 h-96 rounded-full ${
+            isDark ? 'bg-purple-500/5' : 'bg-purple-500/10'
+          } blur-3xl`}
+          animate={{
+            x: ['100%', '20%', '100%'],
+            y: ['50%', '0%', '50%'],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 25,
+            ease: "easeInOut"
+          }}
+          style={{ bottom: '-20%', right: '-10%' }}
+        />
+        
+        {/* Grid pattern background */}
+        <div className={`absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMTIxMjEiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzBoMnYyaC0ydi0yem0tNCAyaDJ2LTJoLTJ2MnptLTQtMmgydjJoLTJ2LTJ6bS00IDJoMnYtMmgtMnYyem0tNCAwaDJ2MmgtMnYtMnptLTQgMGgydjJoLTJ2LTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] ${
+          isDark ? 'opacity-20' : 'opacity-10'
+        }`} />
+      </div>
+    </div>
+  );
+};
+
+interface MembersSectionProps {
+  members: Member[];
+}
+
+const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "0px 0px -200px 0px" });
+  const controls = useAnimation();
+  const [isPaused, setIsPaused] = useState(false);
+  const { theme = 'dark' } = useTheme() || { theme: 'dark' as const };
+  
+  // Autoplay plugin with customizable settings
+  const autoplayPlugin = React.useMemo(() => 
+    Autoplay({ 
+      delay: 1500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    }), 
+    []
+  );
+  
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { 
+          duration: 0.8, 
+          ease: "easeOut" 
+        }
+      });
+    }
+  }, [isInView, controls]);
+  
+  const isDark = theme === 'dark';
+  
+  return (
+    <section 
+      id="members" 
+      className={`py-24 relative ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}
+      aria-label="Membres du club"
+    >
+      <FuturisticBackground theme={theme} />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={controls}
+          className="max-w-3xl mx-auto text-center mb-1"
+        >
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4"
+          >
+            Notre Équipe
+          </motion.span>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4 }}
+            className={`text-3xl md:text-4xl font-display font-semibold mb-6 ${
+              isDark ? 'text-white' : 'text-gray-800'
+            }`}
+          >
+            <span className={`bg-gradient-to-r ${
+              isDark 
+                ? 'from-white to-primary/70' 
+                : 'from-gray-800 to-primary/90'
+            } bg-clip-text text-transparent`}>
+              Rencontrez les Membres de Notre Club
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6 }}
+            className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+          >
+            Un groupe passionné de jeunes talents dédiés à l'innovation technologique et au développement des compétences.
+          </motion.p>
+        </motion.div>
+        
+        {/* Carousel section */}
+        <div 
+          ref={sectionRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="relative"
+        >
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[autoplayPlugin]}
+            className="w-full"
+            onMouseEnter={() => {
+              if (autoplayPlugin.stop) autoplayPlugin.stop();
+            }}
+            onMouseLeave={() => {
+              if (!isPaused && autoplayPlugin.play) autoplayPlugin.play();
+            }}
+          >
+            <CarouselContent className="-ml-4">
+              {members.map((member, index) => (
+                <CarouselItem 
+                  key={`member-${member.name}-${index}`}
+                  className="pl-4 md:basis-1/2 lg:basis-1/3 h-[480px]"
+                >
+                  <MemberCard member={member} index={index} theme={theme} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Carousel navigation buttons */}
+            <div className="flex justify-center mt-12 gap-4">
+              <CarouselPrevious 
+                className={`static translate-y-0 h-12 w-12 rounded-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 focus:ring-2 focus:ring-primary/30 ${
+                  isDark ? 'bg-gray-900/60' : 'bg-white/60'
+                }`}
+                aria-label="Slide précédent"
+              />
+              <CarouselNext 
+                className={`static translate-y-0 h-12 w-12 rounded-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 focus:ring-2 focus:ring-primary/30 ${
+                  isDark ? 'bg-gray-900/60' : 'bg-white/60'
+                }`}
+                aria-label="Slide suivant"
+              />
+            </div>
+          </Carousel>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default MembersSection;
+POUR CE CODE OU EST LE CODE QUI APLQIUE LE VITESSE DU SLIDING SUR LES CARD
