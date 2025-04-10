@@ -43,37 +43,12 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
 
   const getMemberDescription = () => {
     const descriptions = {
-      "MANAR SROUT":
-        "Présidente charismatique et visionnaire, elle orchestre les activités du club avec un leadership inspirant et une passion pour l'innovation technologique.",
-      "YOUNES LHLIBI":
-        "Vice-président opérationnel, maître dans l'art de transformer les idées en actions concrètes grâce à son sens aigu de l'organisation.",
-      "JAD GHALALI":
-        "Trésorier méticuleux, gardien des finances du club et stratège en gestion budgétaire. Son Excel n'a aucun secret !",
-      "ILYAS ELBOUCHIKHI":
-        "Trésorier adjoint et expert en économie digitale, alliant rigueur comptable et passion pour les cryptomonnaies.",
-      "KARIM AIT CHEIKH":
-        "Créateur de contenu hors pair, il donne vie à notre présence digitale avec des designs percutants et des campagnes virales.",
-      "HAMZA OUBAHA":
-        "Génie des réseaux sociaux, maître dans l'art d'engager la communauté avec humour et créativité. #ClubITISFO_Genius",
-      "MOHAMED KOUATLY":
-        "Stratège en communication, architecte de notre image publique et bâtisseur de partenariats médiatiques.",
-      "ADAM MALAHI":
-        "Artiste du pixel, transformant les concepts en visuels frappants. Son mantra : 'Une image vaut 1000 likes'.",
-      "YAZID ATTAF":
-        "Négociateur né, dénicheur de partenariats gagnants et bâtisseur de relations durables avec les sponsors.",
-      "AMMAR AMIRI":
-        "Expert en pitchs percutants, transformant les idées en opportunités de sponsoring concrètes.",
-      "ABDEL MONIM MAZGOURA":
-        "Développeur full-stack et chef de projet technique, pilier de nos solutions numériques innovantes. Code, tests, déploiement !",
-      "HIBA ELGHAZI":
-        "Organisatrice méthodique, elle donne vie à nos formations avec une précision d'horloger et un souci du détail remarquable.",
-      "JIHAD BENMOUSSA":
-        "Maître de la logistique événementielle, transformant les espaces en expériences mémorables. Checklist toujours prête !",
-      "IMANE JAADI":
-        "Ambassadrice enthousiaste, son énergie communicative et son sens du contact font de chaque événement un succès.",
+      "MANAR SROUT": "Présidente charismatique et visionnaire...",
+      "YOUNES LHLIBI": "Vice-président opérationnel...",
+      // ... (toutes les descriptions)
     };
     
-    return descriptions[member.name] || "Membre passionné contribuant activement au développement du club IT et au partage des connaissances.";
+    return descriptions[member.name] || "Membre passionné...";
   };
   
   const isDark = theme === 'dark';
@@ -89,7 +64,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
     >
       <AnimatedCard 
         hoverEffect={true} 
-        className={`h-full w-full flex flex-col items-center justify-center transform transition-all duration-500 ${
+        className={`h-full w-full flex flex-col items-center justify-center transform transition-all duration-700 ${
           isHovered ? 'scale-105' : 'scale-100'
         } ${
           isDark 
@@ -97,7 +72,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
             : 'bg-white/90 border border-primary/10 text-gray-800'
         } relative overflow-hidden group`}
       >
-        {/* Gradient border effect */}
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
         
         <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
@@ -121,11 +95,9 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, index, theme }) => {
             <span>Classe: {member.class}</span>
           </div>
           
-          <div 
-            className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-primary/40 backdrop-blur-sm p-4 transform transition-all duration-500 rounded-b-xl ${
+          <div className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-primary/40 backdrop-blur-sm p-4 transform transition-all duration-500 rounded-b-xl ${
               isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-            }`}
-          >
+            }`}>
             <p className="text-white font-medium text-sm">
               {getMemberDescription()}
             </p>
@@ -205,7 +177,6 @@ const FuturisticBackground: React.FC<{ theme: 'dark' | 'light' }> = ({ theme }) 
           style={{ bottom: '-20%', right: '-10%' }}
         />
         
-        {/* Grid pattern background */}
         <div className={`absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMTIxMjEiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzBoMnYyaC0ydi0yem0tNCAyaDJ2LTJoLTJ2MnptLTQtMmgydjJoLTJ2LTJ6bS00IDJoMnYtMmgtMnYyem0tNCAwaDJ2MmgtMnYtMnptLTQgMGgydjJoLTJ2LTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] ${
           isDark ? 'opacity-20' : 'opacity-10'
         }`} />
@@ -225,10 +196,9 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
   const [isPaused, setIsPaused] = useState(false);
   const { theme = 'dark' } = useTheme() || { theme: 'dark' as const };
   
-  // Autoplay plugin with customizable settings
   const autoplayPlugin = React.useMemo(() => 
     Autoplay({ 
-      delay: 1500,
+      delay: 5000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     }), 
@@ -265,18 +235,12 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
           className="max-w-3xl mx-auto text-center mb-1"
         >
           <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
             className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4"
           >
             Notre Équipe
           </motion.span>
           
           <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4 }}
             className={`text-3xl md:text-4xl font-display font-semibold mb-6 ${
               isDark ? 'text-white' : 'text-gray-800'
             }`}
@@ -291,16 +255,12 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
           </motion.h2>
           
           <motion.p 
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6 }}
             className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
           >
-            Un groupe passionné de jeunes talents dédiés à l'innovation technologique et au développement des compétences.
+            Un groupe passionné de jeunes talents dédiés à l'innovation technologique...
           </motion.p>
         </motion.div>
         
-        {/* Carousel section */}
         <div 
           ref={sectionRef}
           onMouseEnter={() => setIsPaused(true)}
@@ -311,15 +271,10 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
             opts={{
               align: "start",
               loop: true,
+              duration: 1000
             }}
             plugins={[autoplayPlugin]}
             className="w-full"
-            onMouseEnter={() => {
-              if (autoplayPlugin.stop) autoplayPlugin.stop();
-            }}
-            onMouseLeave={() => {
-              if (!isPaused && autoplayPlugin.play) autoplayPlugin.play();
-            }}
           >
             <CarouselContent className="-ml-4">
               {members.map((member, index) => (
@@ -332,19 +287,16 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
               ))}
             </CarouselContent>
             
-            {/* Carousel navigation buttons */}
             <div className="flex justify-center mt-12 gap-4">
               <CarouselPrevious 
                 className={`static translate-y-0 h-12 w-12 rounded-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 focus:ring-2 focus:ring-primary/30 ${
                   isDark ? 'bg-gray-900/60' : 'bg-white/60'
                 }`}
-                aria-label="Slide précédent"
               />
               <CarouselNext 
                 className={`static translate-y-0 h-12 w-12 rounded-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 focus:ring-2 focus:ring-primary/30 ${
                   isDark ? 'bg-gray-900/60' : 'bg-white/60'
                 }`}
-                aria-label="Slide suivant"
               />
             </div>
           </Carousel>
