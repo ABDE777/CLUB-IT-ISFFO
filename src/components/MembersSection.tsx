@@ -225,7 +225,7 @@ const MembersSection: React.FC<MembersSectionProps> = ({ members }) => {
   
   const autoplayPlugin = React.useMemo(() => 
     Autoplay({ 
-      delay: 5000,
+      delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     }), 
