@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { AnimatedCard } from './ui/AnimatedCard';
 import { Member } from '@/lib/types';
-import { motion, useInView, useAnimation, Variants } from 'framer-motion';
+import { motion, useInView, useAnimation, useDragControls, Variants } from 'framer-motion';
 import {
   Carousel,
   CarouselContent,
@@ -12,48 +12,25 @@ import {
 import Autoplay from 'embla-carousel-autoplay';
 import { useTheme } from '@/contexts/ThemeContext';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { useGesture } from '@use-gesture/react';
 
 // Animation constants
-const springTransition = {
+const SPRING_CONFIG = {
   type: "spring",
-  stiffness: 100,
-  damping: 20
+  stiffness: 120,
+  damping: 25,
+  mass: 0.5
 };
 
-const fadeInVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+const ENTRANCE_VARIANTS: Variants = {
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1 }
 };
 
-interface MemberCardProps {
-  member: Member;
-  index: number;
-  theme: 'dark' | 'light';
-}
-
-const MemberCard = React.memo(({ member, index, theme }: MemberCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const controls = useAnimation();
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px 0px" });
-  
-  useEffect(() => {
-    if (isInView) {
-      controls.start({
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: { 
-          ...springTransition,
-          duration: 0.5,
-          delay: index * 0.1
-        }
-      });
-    }
-  }, [controls, isInView, index]);
-
-  const descriptionMap = useCallback(() => ({
-     "MANAR SROUT":
+// Content constants
+const DESCRIPTIONS = {
+   "MANAR SROUT":
         "Présidente charismatique et visionnaire, elle orchestre les activités du club avec un leadership inspirant et une passion pour l'innovation technologique.",
       "YOUNES LHLIBI":
         "Vice-président opérationnel, maître dans l'art de transformer les idées en actions concrètes grâce à son sens aigu de l'organisation.",
@@ -81,50 +58,105 @@ const MemberCard = React.memo(({ member, index, theme }: MemberCardProps) => {
         "Maître de la logistique événementielle, transformant les espaces en expériences mémorables. Checklist toujours prête !",
       "IMANE JAADI":
         "Ambassadrice enthousiaste, son énergie communicative et son sens du contact font de chaque événement un succès.",
-  }[member.name]), [member.name]);
+} as const;
 
-  const isDark = theme === 'dark';
-  
+const DEFAULT_IMAGE_BLUR = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=';
+
+interface MemberCardProps {
+  member: Member;
+  index: number;
+  theme: 'dark' | 'light';
+}
+
+const MemberCard = React.memo(({ member, index, theme }: MemberCardProps) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  const controls = useAnimation();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(cardRef, { 
+    once: true, 
+    margin: "-50px 0px",
+    amount: 0.05
+  });
+
+  const dragControls = useDragControls();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        ...ENTRANCE_VARIANTS.visible,
+        transition: { 
+          ...SPRING_CONFIG,
+          delay: index * 0.07
+        }
+      });
+    }
+  }, [controls, inView, index]);
+
+  const bind = useGesture({
+    onHover: ({ active }) => setIsHovered(active),
+    onDrag: ({ movement: [mx] }) => {
+      controls.start({ x: mx * 0.4, rotate: mx * 0.1 });
+    },
+    onDragEnd: () => {
+      controls.start({ x: 0, rotate: 0 });
+    }
+  });
+
   return (
     <motion.div 
       ref={cardRef}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      initial="hidden"
       animate={controls}
+      variants={ENTRANCE_VARIANTS}
       className="h-[450px] w-full flex flex-col items-center justify-center p-6"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(prev => !prev)}
+      {...bind()}
+      drag="x"
+      dragControls={dragControls}
+      dragConstraints={{ left: 0, right: 0 }}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
     >
-      <AnimatedCard 
-        hoverEffect 
+      <AnimatedCard
         className={cn(
-          "h-full w-full flex flex-col items-center justify-center transform",
-          "relative overflow-hidden group transition-transform duration-300",
-          isDark 
-            ? 'bg-gray-900/80 border border-primary/30 text-white' 
-            : 'bg-white/90 border border-primary/10 text-gray-800',
-          isHovered && 'scale-105'
+          "h-full w-full flex flex-col items-center justify-center",
+          "relative overflow-hidden group transform-style-preserve-3d",
+          "bg-opacity-90 backdrop-blur-sm border",
+          theme === 'dark' 
+            ? 'bg-gray-900 border-primary/30 text-white' 
+            : 'bg-white border-primary/10 text-gray-800',
+          isHovered && 'scale-[1.02] shadow-2xl'
         )}
+        whileHover={{ rotateY: 2, rotateX: 1 }}
+        transition={SPRING_CONFIG}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
+        {/* Optimized image container */}
         <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
-          <motion.img
+          <Image
             src={member.image}
             alt={member.name}
+            fill
             loading="lazy"
-            className="w-full h-full object-cover"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
+            className="object-cover will-change-transform"
+            placeholder="blur"
+            blurDataURL={DEFAULT_IMAGE_BLUR}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = '/default-avatar.svg';
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
         </div>
-        
-        <div className="p-4 w-full relative z-10 mt-1">
+
+        {/* Content with parallax effect */}
+        <motion.div 
+          className="p-4 w-full relative z-10"
+          initial={{ y: 0 }}
+          animate={{ y: isHovered ? -10 : 0 }}
+          transition={SPRING_CONFIG}
+        >
           <h3 className={cn(
-            "text-xl font-semibold mb-1 transition-colors duration-300",
-            isDark ? 'text-white' : 'text-gray-800',
+            "text-xl font-semibold mb-1 transition-colors",
+            theme === 'dark' ? 'text-white' : 'text-gray-800',
             "group-hover:text-primary"
           )}>
             {member.name}
@@ -132,7 +164,7 @@ const MemberCard = React.memo(({ member, index, theme }: MemberCardProps) => {
           <p className="text-primary font-medium mb-2">{member.role}</p>
           <div className={cn(
             "flex space-x-4 text-sm",
-            isDark ? 'text-gray-300' : 'text-gray-500'
+            theme === 'dark' ? 'text-gray-300' : 'text-gray-500'
           )}>
             <span>Âge: {member.age}</span>
             <span>Classe: {member.class}</span>
@@ -148,82 +180,56 @@ const MemberCard = React.memo(({ member, index, theme }: MemberCardProps) => {
               translateY: isHovered ? 0 : '100%',
               opacity: isHovered ? 1 : 0
             }}
-            transition={{ duration: 0.3 }}
+            transition={SPRING_CONFIG}
           >
             <p className="text-white font-medium text-sm">
-              {descriptionMap()}
+              {DESCRIPTIONS[member.name as keyof typeof DESCRIPTIONS] || 
+               "Membre passionné contribuant activement au développement du club."}
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Animated particles */}
-        {isHovered && (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-3 h-3 rounded-full bg-primary/80"
-                animate={{
-                  x: [0, 100, 200, 0],
-                  y: [0, 50, 100, 0],
-                  opacity: [1, 0.8, 0.6, 1],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4 + i,
-                  ease: "linear"
-                }}
-              />
-            ))}
-          </div>
-        )}
+        <ParticleSystem theme={theme} active={isHovered} />
       </AnimatedCard>
     </motion.div>
   );
 });
 
-const FuturisticBackground = React.memo(({ theme }: { theme: 'dark' | 'light' }) => {
-  const isDark = theme === 'dark';
+const ParticleSystem = React.memo(({ theme, active }: { theme: 'dark' | 'light', active: boolean }) => {
+  const particles = useRef(new Array(15).fill(null));
   
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="relative w-full h-full">
-        {[...Array(2)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={cn(
-              "absolute w-96 h-96 rounded-full blur-3xl",
-              i % 2 ? 'bg-purple-500/5' : 'bg-primary/5',
-              isDark ? 'opacity-20' : 'opacity-30'
-            )}
-            animate={{
-              x: i % 2 ? ['100%', '20%', '100%'] : ['0%', '80%', '0%'],
-              y: i % 2 ? ['50%', '0%', '50%'] : ['0%', '40%', '0%'],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 20 + (i * 5),
-              ease: "easeInOut"
-            }}
-            style={{
-              top: i % 2 ? '-20%' : 'auto',
-              bottom: i % 2 ? '-20%' : 'auto',
-              left: i % 2 ? '-10%' : 'auto',
-              right: i % 2 ? '-10%' : 'auto'
-            }}
-          />
-        ))}
-        
-        <div className={cn(
-          "absolute inset-0 bg-grid",
-          isDark ? 'opacity-20' : 'opacity-10'
-        )} />
-      </div>
+      {particles.current.map((_, i) => (
+        <motion.div
+          key={i}
+          className={cn(
+            "absolute w-2 h-2 rounded-full",
+            theme === 'dark' ? 'bg-primary/80' : 'bg-primary/60'
+          )}
+          initial={{ 
+            x: Math.random() * 100 + '%',
+            y: Math.random() * 100 + '%',
+            scale: 0 
+          }}
+          animate={{
+            x: active ? Math.random() * 100 + '%' : '50%',
+            y: active ? Math.random() * 100 + '%' : '50%',
+            scale: active ? 1 : 0,
+            opacity: active ? [1, 0.8, 0.6, 1] : 0
+          }}
+          transition={{
+            duration: 2 + Math.random() * 3,
+            repeat: Infinity,
+            ease: "circOut"
+          }}
+        />
+      ))}
     </div>
   );
 });
 
-const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
+const MembersSection = React.memo(({ members }: { members: Member[] }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
   const { theme = 'dark' } = useTheme() || {};
@@ -250,7 +256,29 @@ const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
       )}
       aria-label="Membres du club"
     >
-      <FuturisticBackground theme={theme} />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="relative w-full h-full">
+          {[...Array(2)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={cn(
+                "absolute w-[40vw] h-[40vw] rounded-full blur-[100px]",
+                i % 2 ? 'bg-purple-500/5' : 'bg-primary/5',
+                theme === 'dark' ? 'opacity-20' : 'opacity-30'
+              )}
+              animate={{
+                x: i % 2 ? ['120%', '-20%', '120%'] : ['-20%', '120%', '-20%'],
+                y: i % 2 ? ['120%', '-20%', '120%'] : ['-20%', '120%', '-20%'],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 30 + (i * 10),
+                ease: "linear"
+              }}
+            />
+          ))}
+        </div>
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
@@ -260,16 +288,16 @@ const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
           className="max-w-3xl mx-auto text-center mb-12"
         >
           <motion.span 
-            variants={fadeInVariants}
-            transition={{ ...springTransition, delay: 0.2 }}
+            variants={ENTRANCE_VARIANTS}
+            transition={{ ...SPRING_CONFIG, delay: 0.2 }}
             className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4"
           >
             Notre Équipe
           </motion.span>
           
           <motion.h2 
-            variants={fadeInVariants}
-            transition={{ ...springTransition, delay: 0.4 }}
+            variants={ENTRANCE_VARIANTS}
+            transition={{ ...SPRING_CONFIG, delay: 0.4 }}
             className={cn(
               "text-3xl md:text-4xl font-display font-semibold mb-6",
               theme === 'dark' ? 'text-white' : 'text-gray-800'
@@ -286,8 +314,8 @@ const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
           </motion.h2>
           
           <motion.p 
-            variants={fadeInVariants}
-            transition={{ ...springTransition, delay: 0.6 }}
+            variants={ENTRANCE_VARIANTS}
+            transition={{ ...SPRING_CONFIG, delay: 0.6 }}
             className={cn(
               "text-lg max-w-2xl mx-auto",
               theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
@@ -298,7 +326,12 @@ const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
         </motion.div>
 
         <Carousel
-          opts={{ align: "start", loop: true, duration: 800 }}
+          opts={{ 
+            align: "start", 
+            loop: true, 
+            duration: 800,
+            dragFree: true
+          }}
           plugins={[autoplayPlugin.current]}
           className="w-full"
           onMouseEnter={autoplayPlugin.current.stop}
@@ -339,6 +372,6 @@ const MembersSection: React.FC<{ members: Member[] }> = ({ members }) => {
       </div>
     </section>
   );
-};
+});
 
-export default React.memo(MembersSection);
+export default MembersSection;
