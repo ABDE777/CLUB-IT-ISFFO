@@ -65,7 +65,7 @@ const Index = () => {
   },
   {
     name: "ABDEL MONIM MAZGOURA",
-    role: "Responsable Formation et Projets et Développeur du Club",
+    role: "Responsable Formation et Projets",
     age: 19,
     class: "DD104",
     image: "/images/members/1.png",
