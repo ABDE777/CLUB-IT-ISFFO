@@ -157,22 +157,22 @@ const Index = () => {
     description: "Le directeur de l'ISFO supervise la gestion de l’établissement, assurant son bon fonctionnement et la réussite des étudiants.",
   },
    {
-  name: "Mme Hanane BELAOUD",
+  name: "Mme HANANE BELAOUD",
   image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
   field: "Formatrice en infrastructure digitale",
   description: "Avec passion, j'aide mes stagiaires à développer leur expertise technique en réseaux, systèmes et sécurité informatique."
 },
  {
-  name: "M. Hamdi Boumlik",
+  name: "M.HAMDI BOUMLIK",
   image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
   field: "Formatreur en développement informatique",
   description: "Passionné par l’enseignement, Mr. Boumlik forme les futurs talents du développement informatique avec rigueur et pédagogie."
 },
   {
     name: "Mme. AMAL SEMMAR",
-    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-    field: " ",
-    description: "",
+    image: "/images/sponsors/mme_semmar.png",
+    field: "Formatrice en Infrastructure Digitale",
+    description: " j’ai pour mission de former et d’encadrer activement les stagiaires afin de faciliter leur employabilité.",
   },
 
   {
