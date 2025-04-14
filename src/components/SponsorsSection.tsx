@@ -31,19 +31,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
   const isInView = useInView(cardRef, { once: true, amount: 0.3 });
   const isDark = theme === "dark";
 
-  const getDescription = (name: string): string => {
-    const descriptions: Record<string, string> = {
-      OFPPT:
-        "L'Office de la Formation Professionnelle et de la Promotion du Travail, partenaire clé dans le développement des compétences et l'insertion professionnelle des jeunes marocains.",
-      "Mr. KAMAL DAOUDI":
-        "Expert chevronné en développement web avec plus de 15 ans d'expérience, mentor passionné guidant les étudiants vers l'excellence technique et l'innovation.",
-};
-    return (
-      descriptions[name] ||
-      sponsor.description ||
-      "Encadrants dévoués qui accompagnent notre club avec engagement et jouent un rôle essentiel dans notre réussite collective."
-    );
-  };
+
 
   const generateParticles = (count: number) => {
     return Array.from({ length: count }).map((_, i) => (
