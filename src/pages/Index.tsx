@@ -162,19 +162,19 @@ const Index = () => {
     field: " ",
     description: "",
   },
- 
+
   {
     name: "Mme. AMAL SEMMAR",
     image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
     field: " ",
     description: "",
   },
-  {
-    name: "Mr. BOUMLIK",
-    image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", 
-    field: " ",
-    description: ".",
-  },
+ {
+  name: "M. Hamdi Boumlik",
+  image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+  field: "Professeur en développement informatique",
+  description: "Passionné par l’enseignement, Mr. Boumlik forme les futurs talents du développement informatique avec rigueur et pédagogie."
+},
   {
     name: "Mr. KAMAL DAOUDI",
     image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", 
