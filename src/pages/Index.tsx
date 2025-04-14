@@ -167,7 +167,7 @@ const Index = () => {
   image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
   field: "Formateur en développement informatique",
   description: "Je suis passionné par l’enseignement et je m'engage à former les futurs talents du développement informatique avec rigueur et pédagogie."
-}
+},
 
   {
     name: "Mme. AMAL SEMMAR",
