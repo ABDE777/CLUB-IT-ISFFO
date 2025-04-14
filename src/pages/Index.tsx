@@ -75,7 +75,7 @@ const Index = () => {
     role: "Trésorier",
     age: 18,
     class: "DD103",
-    image: "/images/members/14.png", // Image externe correcte
+    image: "/images/members/14.png", 
   },
   {
     name: "ILYAS ELBOUCHIKHI",
@@ -151,10 +151,10 @@ const Index = () => {
 
  const sponsors: Sponsor[] = [
     {
-    name: "Mr. BOUSETTA IBRAHIM",
+    name: "Mr BOUSETTA BRAHIM",
     image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", 
-    field: "Direction Institutionnelle",
-    description: "Le directeur de l'ISFO supervise la gestion de l’établissement, assurant son bon fonctionnement et la réussite des étudiants.",
+    field: "Directeur de l'ISFO",
+    description: "Ma mission est la gestion globale de l'etablissement et la création des opportunités pour le développement de compétences.",
   },
    {
   name: "Mme HANANE BELAOUD",
@@ -162,12 +162,13 @@ const Index = () => {
   field: "Formatrice en infrastructure digitale",
   description: "Avec passion, j'aide mes stagiaires à développer leur expertise technique en réseaux, systèmes et sécurité informatique."
 },
- {
+{
   name: "M.HAMDI BOUMLIK",
   image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-  field: "Formatreur en développement informatique",
-  description: "Passionné par l’enseignement, Mr. Boumlik forme les futurs talents du développement informatique avec rigueur et pédagogie."
-},
+  field: "Formateur en développement informatique",
+  description: "Je suis passionné par l’enseignement et je m'engage à former les futurs talents du développement informatique avec rigueur et pédagogie."
+}
+
   {
     name: "Mme. AMAL SEMMAR",
     image: "/images/sponsors/mme_semmar.png",
