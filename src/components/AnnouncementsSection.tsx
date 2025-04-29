@@ -151,22 +151,23 @@ const AnnouncementsSection = () => {
   const [paused, setPaused] = useState(false);
 const demoAnnouncements = [
   {
-    title: "🚀Workshop CV & LinkedIn",
+    title: "🚀Workshop CV & LinkedIn - 13 mai 2025",
     dateDebut: "13 Mai 2025",
     dateFin: "13 Mai 2025",
     image: "/images/events/workshop.jpg",
     formUrl: "https://workshop-club-it.vercel.app/",
     schedule: [
-      { time: "09h45 – 10h00", activity: "Accueil des stagiaires • Vérification des présences • Distribution de badges/stickers" },
-      { time: "10h00 – 10h20", activity: "Brainstorming collectif : “Mur Boost ton Profil” • Fiches à remplir (🔍 💪 🚀) • Lecture volontaire + collage au mur" },
-      { time: "10h20 – 10h30", activity: "Astuce : Analyse de profil LinkedIn avec ResumeWorded.com • Démo rapide" },
-      { time: "10h30 – 12h30", activity: "Intervention de Mme Sara Naitslimane • Thème : Optimisation du CV & Profil LinkedIn • Conseils pratiques, échanges avec les stagiaires" },
-      { time: "12h30 – 12h40", activity: "Photo de groupe & remerciements à l’intervenante" },
-      { time: "12h40 – 13h00", activity: "Coin Photo Professionnel (individuel) • Photos LinkedIn pour les stagiaires" },
-      { time: "13h00 – 13h15", activity: "Clôture & distribution des certificats • Remerciements finaux + mot du Club IT" },
+      { time: "09h45 – 10h00", activity: "Accueil des stagiaires" },
+      { time: "10h00 – 10h20", activity: "Brainstorming collectif : “Mur Boost ton Profil”" },
+      { time: "10h20 – 10h30", activity: "Astuce : Analyse de profil LinkedIn" },
+      { time: "10h30 – 12h30", activity: "Intervention de Mme Sara Naitslimane" },
+      { time: "12h30 – 12h40", activity: "Photo de groupe & remerciements" },
+      { time: "12h40 – 13h00", activity: "Coin Photo Professionnel" },
+      { time: "13h00 – 13h15", activity: "Clôture & distribution des certificats" },
     ],
   },
 ];
+
 
 
   const handleNavigation = (newDirection) => {
