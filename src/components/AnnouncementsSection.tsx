@@ -149,24 +149,25 @@ const AnnouncementsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+const demoAnnouncements = [
+  {
+    title: "🚀Workshop CV & LinkedIn",
+    dateDebut: "13 Mai 2025",
+    dateFin: "13 Mai 2025",
+    image: "/images/events/workshop.jpg",
+    formUrl: "https://workshop-club-it.vercel.app/",
+    schedule: [
+      { time: "09h45 – 10h00", activity: "Accueil des stagiaires • Vérification des présences • Distribution de badges/stickers" },
+      { time: "10h00 – 10h20", activity: "Brainstorming collectif : “Mur Boost ton Profil” • Fiches à remplir (🔍 💪 🚀) • Lecture volontaire + collage au mur" },
+      { time: "10h20 – 10h30", activity: "Astuce : Analyse de profil LinkedIn avec ResumeWorded.com • Démo rapide" },
+      { time: "10h30 – 12h30", activity: "Intervention de Mme Sara Naitslimane • Thème : Optimisation du CV & Profil LinkedIn • Conseils pratiques, échanges avec les stagiaires" },
+      { time: "12h30 – 12h40", activity: "Photo de groupe & remerciements à l’intervenante" },
+      { time: "12h40 – 13h00", activity: "Coin Photo Professionnel (individuel) • Photos LinkedIn pour les stagiaires" },
+      { time: "13h00 – 13h15", activity: "Clôture & distribution des certificats • Remerciements finaux + mot du Club IT" },
+    ],
+  },
+];
 
-  const demoAnnouncements = [
-    {
-      title: "Hackathon Express Tech For Women",
-      dateDebut: "14 Mars 2025",
-      dateFin: "14 Mars 2025",
-      image: "/images/events/hackathon_express.jpg",
-      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSczMlKAYajkcddkhRT_0KbRAxrMmZvmW27Eo8zAcvbtaAO-Gg/viewform?usp=header",
-      schedule: [
-        { time: "08h30", activity: "Accueil des participants" },
-        { time: "09h00", activity: "Mot d'ouverture" },
-        { time: "09h15", activity: "Rappel du déroulement" },
-        { time: "10h00", activity: "Présentation des Projets" },
-        { time: "11h30", activity: "Remise des Prix" },
-      ],
-    },
-   
-  ];
 
   const handleNavigation = (newDirection) => {
     setDirection(newDirection);
