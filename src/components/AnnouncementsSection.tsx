@@ -151,7 +151,7 @@ const AnnouncementsSection = () => {
   const [paused, setPaused] = useState(false);
 const demoAnnouncements = [
   {
-    title: "🚀Workshop CV & LinkedIn - 13 mai 2025",
+    title: "🚀Workshop CV & LinkedIn",
     dateDebut: "13 Mai 2025",
     dateFin: "13 Mai 2025",
     image: "/images/events/workshop.jpg",
