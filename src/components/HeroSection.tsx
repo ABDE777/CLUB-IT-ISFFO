@@ -10,8 +10,8 @@ interface HeroSectionProps {
 const announcements = [
   {
   id: 1,
-  title: "Conférence exclusive sur les métiers et tendances IT",
-  date: "28-29 MAI | Inscriptions bientôt ouvertes",
+  title: "🚀 Workshop CV & LinkedIn",
+  date: "13 MAI | Inscriptions bientôt ouvertes",
   label: "PROCHAINEMENT",
 }
 ];
