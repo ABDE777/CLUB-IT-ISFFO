@@ -130,21 +130,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
                 </div>
 
                 <motion.div whileHover={{ scale: 1.03 }}>
-                  <CustomButton
-                    size="sm"
-                    className="group bg-primary/85 hover:bg-primary text-white"
-                    onClick={() =>
-                      document
-                        .getElementById("events")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    <span className="flex items-center gap-1.5 text-sm">
-                      Voir détails
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </CustomButton>
-                </motion.div>
+  <a href="/
+AnnouncementsSection.tsx" className="group">
+    <CustomButton
+      size="sm"
+      className="bg-primary/85 hover:bg-primary text-white"
+    >
+      <span className="flex items-center gap-1.5 text-sm">
+        Voir détails
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+      </span>
+    </CustomButton>
+  </a>
+</motion.div>
+
               </div>
             </div>
 
