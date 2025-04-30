@@ -155,10 +155,10 @@ const demoAnnouncements = [
     dateDebut: "13 Mai 2025",
     dateFin: "13 Mai 2025",
     image: "/images/events/workshop.jpg",
-    formUrl: "https://workshop-club-it.vercel.app/",
+    formUrl: "https://workshop-it.vercel.app/",
     schedule: [
       { time: "09h45 – 10h00", activity: "Accueil des stagiaires" },
-      { time: "10h00 – 10h20", activity: "Brainstorming collectif : “Mur Boost ton Profil”" },
+      { time: "10h00 – 10h20", activity: "Brainstorming collectif" },
       { time: "10h20 – 10h30", activity: "Astuce : Analyse de profil LinkedIn" },
       { time: "10h30 – 12h30", activity: "Intervention de Mme Sara Naitslimane" },
       { time: "12h30 – 12h40", activity: "Photo de groupe & remerciements" },
