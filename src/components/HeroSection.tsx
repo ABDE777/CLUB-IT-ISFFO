@@ -9,11 +9,11 @@ interface HeroSectionProps {
 
 const announcements = [
   {
-  id: 1,
-  title: "🚀 Workshop CV & LinkedIn",
-  date: "13 MAI | Inscriptions bientôt ouvertes",
-  label: "PROCHAINEMENT",
-}
+    id: 1,
+    title: "🚀 Digital Skills & Jobs Day",
+    date: "29 Mai 2025 | Inscriptions à venir",
+    label: "PROCHAINEMENT",
+  }
 ];
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
