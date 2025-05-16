@@ -130,8 +130,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick }) => {
                 </div>
 
                 <motion.div whileHover={{ scale: 1.03 }}>
-  <a href="/
-AnnouncementsSection.tsx" className="group">
+  <a href="/AnnouncementsSection.tsx" className="group">
     <CustomButton
       size="sm"
       className="bg-primary/85 hover:bg-primary text-white"
