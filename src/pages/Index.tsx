@@ -186,7 +186,7 @@ const Index = () => {
 
 
   // spell-checker: disable
-  const announcements: Announcement[] = [
+  /*const announcements: Announcement[] = [
     {
       title: "HACKATHON EXPRESS",
       dateDebut: "6 MARS 2025",
@@ -197,7 +197,7 @@ const Index = () => {
         "/images/events/hackathon_express.jpg",
     },
    
-  ];
+  ];*/
   // spell-checker: enable
 
   return (
