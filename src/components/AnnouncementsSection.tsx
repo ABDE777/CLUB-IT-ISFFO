@@ -151,7 +151,7 @@ const AnnouncementsSection = () => {
   const [paused, setPaused] = useState(false);
 const demoAnnouncements = [
   {
-    title: "Digital Skills & Jobs Day 2025",
+    title: "Digital Skills & Jobs Day",
     dateDebut: "29 Mai 2025",
     dateFin: "",
     image: "/images/events/conferecne.jpg",
