@@ -188,13 +188,13 @@ const Index = () => {
   // spell-checker: disable
   const announcements: Announcement[] = [
     {
-      title: "HACKATHON EXPRESS",
-      dateDebut: "6 MARS 2025",
-      dateFin: "13 MARS 2025",
+      title: "Digital Skills & Jobs Day 2025",
+      dateDebut: "29 MAI  2025",
+      dateFin: "",
       description:
-        "Le Hackathon du 8 mars invite des équipes de 3 participants à créer des solutions innovantes sur le thème des Droits des Femmes. En une semaine, les équipes devront brainstormer et développer leurs projets sous pression. Les meilleurs auront l’opportunité de présenter devant un panel de juges et de remporter des prix. Rejoignez-nous pour une expérience enrichissante et dynamique !",
+        "Découvrez les dernières tendances du secteur numérique au Maroc et connectez-vous avec les experts de l'industrie IT & Digital",
       image:
-        "/images/events/hackathon_express.jpg",
+        "/images/events/conferecne.jpg",
     },
    
   ];
