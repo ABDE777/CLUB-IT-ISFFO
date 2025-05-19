@@ -151,19 +151,20 @@ const AnnouncementsSection = () => {
   const [paused, setPaused] = useState(false);
 const demoAnnouncements = [
   {
-    title: "🚀Workshop CV & LinkedIn",
-    dateDebut: "13 Mai 2025",
-    dateFin: "13 Mai 2025",
-    image: "/images/events/workshop.jpg",
-    formUrl: "https://workshop-it.vercel.app/",
+    title: "Digital Skills & Jobs Day 2025",
+    dateDebut: "29 Mai 2025",
+    dateFin: "",
+    image: "/images/events/conferecne.jpg",
+    formUrl: "https://digital-skills-jobs-day-2025.vercel.app/",
     schedule: [
-      { time: "09h45 – 10h00", activity: "Accueil des stagiaires" },
-      { time: "10h00 – 10h20", activity: "Brainstorming collectif" },
-      { time: "10h20 – 10h30", activity: "Astuce : Analyse de profil LinkedIn" },
-      { time: "10h30 – 12h30", activity: "Intervention de Mme Sara Naitslimane" },
-      { time: "12h30 – 12h40", activity: "Photo de groupe & remerciements" },
-      { time: "12h40 – 13h00", activity: "Coin Photo Professionnel" },
-      { time: "13h00 – 13h15", activity: "Clôture & distribution des certificats" },
+      { time: "08H30 – 09H00", activity: "ACCUEIL & ENREGISTREMENT" },
+      { time: "09H00 – 09H30", activity: "OUVERTURE OFFICIELLE" },
+      { time: "09H30 – 11H00", activity: "CONFÉRENCE – LES ÉVOLUTIONS DU SECTEUR IT" },
+      { time: "11H00 – 11H30", activity: "PAUSE CAFÉ" },
+      { time: "11H30 – 13H30", activity: "TABLE RONDE INTERACTIVE – EMPLOI & COMPÉTENCES IT" },
+      { time: "13H30 – 14H30", activity: "PAUSE DÉJEUNER & NETWORKING" },
+      { time: "14H30 – 15H30", activity: "SESSION RECRUTEMENT & CYTHÈQUE INTERACTIVE" },
+      { time: "15H30 – 16H00", activity: "CLÔTURE OFFICIELLE" }
     ],
   },
 ];
