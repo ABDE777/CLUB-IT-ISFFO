@@ -157,7 +157,7 @@ const demoAnnouncements = [
     image: "/images/events/conferecne.jpg",
     formUrl: "https://digital-skills-jobs-day-2025.vercel.app/",
     schedule: [
-      { time: "08H30 – 09H30", activity: "ACCUEIL & ENREGISTREMENT & OUVERTURE OFFICIELLE" }
+      { time: "08H30 – 09H30", activity: "ACCUEIL & ENREGISTREMENT & OUVERTURE OFFICIELLE" },
       { time: "09H30 – 11H00", activity: "CONFÉRENCE – LES ÉVOLUTIONS DU SECTEUR IT" },
       { time: "11H00 – 11H30", activity: "PAUSE CAFÉ" },
       { time: "11H30 – 13H30", activity: "TABLE RONDE INTERACTIVE – EMPLOI & COMPÉTENCES IT" },
