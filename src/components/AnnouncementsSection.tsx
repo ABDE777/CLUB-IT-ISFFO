@@ -155,7 +155,7 @@ const demoAnnouncements = [
     dateDebut: "29 Mai 2025",
     dateFin: "",
     image: "/images/events/conferecne.jpg",
-    formUrl: "https://digital-skills-jobs-day-2025.vercel.app/",
+    formUrl: "https://digital-skills-jobs-day.vercel.app/",
     schedule: [
       { time: "08H30 – 09H30", activity: "ACCUEIL & ENREGISTREMENT & OUVERTURE OFFICIELLE" },
       { time: "09H30 – 11H00", activity: "CONFÉRENCE – LES ÉVOLUTIONS DU SECTEUR IT" },
